@@ -18,4 +18,4 @@ jobs:
       - name: Build
         run: npm run build
       - name: Rodar testes de unidade com Jest
-        run: npx test
+        run: npx jest
