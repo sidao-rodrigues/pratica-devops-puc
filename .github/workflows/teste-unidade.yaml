@@ -1,0 +1,25 @@
+name: 'Teste de Unidade Next.js'
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+	teste-unidade:
+		runs-on: ubuntu-latest
+		steps:
+			- uses: actions/checkout@v3 #pega o estado atual do código que está na main e baixa para a máquina que foi provisionada
+			
+			- name: 'Usar Node 18.x'
+				uses: actions/setup-node@v3 #irá instalar o node nessa máquina 
+				with:
+					node-version: '18.x'
+			
+			- name: 'Instalar dependências'
+				run: npm install
+			
+			- name: 'Build'
+				run: npm run build
+			
+			- name: 'Rodar testes de unidade com Jest'
+				run: npm test
