@@ -1,0 +1,13 @@
+# Docker swarm
+
+## COMANDS
+
+#iniciar o swarm para iniciar
+docker swarm init 
+
+#subir um conjunto de container dentro desse enxame - cria três replicas para esse container, usando como um balanceamento de carga
+docker service create --name enxame-meu-app --replicas 3 --publish 8080:8080 minha-imagem-docker
+
+#escalar o serviço para 5 containers #com isso esse garante que tenha os 5 containers
+docker service scale enxame-meu-app-5
+
